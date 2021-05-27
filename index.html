@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Word Search Generator</title>
+        <meta http-equiv="Cache-control" content="no-cache">  
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/sticky-footer.css" rel="stylesheet">     
+
+        <link rel="icon" href="img/logo.png">   
+        <style>
+            canvas{ background-color: rgb(15, 15, 15); width: 100%;}
+			textarea{ background-color: black; foreground-color: white;}
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-md-auto">
+                <img src="img/logo.png" class="rounded mx-auto d-block" alt="Logo" style="max-height: 100px;">
+            </div>
+            <div class="col-md-auto">
+                <h1 class="display-2 text-center">WordSearch Generator</h2></div>
+            </div>
+        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md" id="canvas-col">
+                <canvas id="my-canvas" width="600" height="600" tabindex='1'></canvas>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text">Words (sepparated by commas)</span>
+                    <textarea class="form-control" aria-label="With textarea" id="wordInput" oninput="refreshWords()">Dog, Tiger, Llama, Cocodrile</textarea>
+                </div>
+
+                <label for="columnsRange" class="form-label">Columns</label> <span id="columnsAmmount"></span>
+                <input type="range" class="form-range" min="5" max="20" step="1" id="columnsRange" oninput="refreshWords()">
+                <label for="rowsRange" class="form-label">Rows</label> <span id="rowsAmmount"></span>
+                <input type="range" class="form-range" min="5" max="20" step="1" id="rowsRange" oninput="refreshWords()">
+                <label for="sizeRange" class="form-label">Size</label>
+                <input type="range" class="form-range" min="20" max="60" step="5" id="sizeRange" oninput="refreshDraw()">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" checked="true" id="colorCheck" oninput="refreshDraw()">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Color answers
+                    </label>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="refreshWords()">Generate!</button>
+            </div>
+        </div>
+    </div>	
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <a href="https://martinsuarezz.github.io/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-grid-3x2-gap-fill" viewBox="0 0 16 16">
+                    <path d="M1 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V4zM1 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V9z"/>
+                </svg>
+                Other proyects
+            </a>
+        </div>
+    </footer>            	
+        
+    <script src="js/index.js"></script> 
+    </body>
+</html>
