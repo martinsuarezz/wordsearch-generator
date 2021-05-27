@@ -15,6 +15,13 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function getPosition(){
+    let rand = Math.random();
+    if (rand < document.getElementById("horizontalRange").value)
+        return HORIZONTAL;
+    return VERTICAL;
+}
+
 function drawWordSearch(){
     tooBigAlert = false;
     ctx.fillStyle = "#FFFFFF";
@@ -84,7 +91,7 @@ function colocateWord(word, wordSearch, filledSlots, width, height, tries){
         return;
     }
     for (let i = 0; i < tries; i++){
-        wordOrientation = getRandomInt(1, 3);
+        wordOrientation = getPosition();
         if ((wordOrientation == HORIZONTAL && width < word.length) || 
             (wordOrientation == VERTICAL && height < word.length))
             continue;
